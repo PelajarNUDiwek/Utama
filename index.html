@@ -1,33 +1,69 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Segera Hadir!</title>
+    <title>Hitung Mundur Peluncuran Website IPNU IPPNU Desa Diwek</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
         body {
             text-align: center;
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
-        h1 {
-            color: #333;
-            font-size: 48px;
-            margin-top: 100px;
+        .countdown-container {
+            display: inline-block;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
-        p {
-            color: #666;
-            font-size: 24px;
-            margin-bottom: 50px;
+        .countdown-el {
+            font-size: 36px;
+            margin: 0 10px;
         }
     </style>
 </head>
 <body>
-    <h1>Website IPNU IPPNU DESA DIWEK Segera Hadir!</h1>
-    <p>Terima kasih atas antusiasme Anda. Kami sedang mempersiapkan website ini untuk memberikan pengalaman terbaik bagi Anda. Silakan kunjungi kembali dalam waktu dekat.</p>
-    <p>Follow kami di media sosial untuk mendapatkan informasi terbaru:</p>
-    <ul>
-        <li><a href="https://www.facebook.com/">Facebook</a></li>
-        <li><a href="https://www.instagram.com/">Instagram</a></li>
-        <li><a href="https://www.twitter.com/">Twitter</a></li>
-    </ul>
+    <h1>Website IPNU IPPNU Desa Diwek Segera Hadir!</h1>
+    <div class="countdown-container">
+        <span class="countdown-el days">0</span>
+        <span>hari</span>
+        <span class="countdown-el hours">0</span>
+        <span>jam</span>
+        <span class="countdown-el minutes">0</span>
+        <span>menit</span>
+        <span class="countdown-el seconds">0</span>
+        <span>detik</span>
+    </div>
+    <script>
+        // Set the date we're counting down to
+        // Set the date we're counting down to
+        const countdownDate = new Date('2024-05-15 23:59:59').getTime();
+
+        // Update the count down every 1 second
+        const x = setInterval(function() {
+
+            // Get today's date and time
+            const now = new Date().getTime();
+
+            // Find the distance between now and the countdown date
+            const distance = countdownDate - now;
+
+            // Time calculations for days, hours, minutes and seconds
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Output the result in an element with id="demo"
+            document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+
+            // If the count down is over, write some text 
+            if (distance < 0) {
+                clearInterval(x);
+                document.getElementById("demo").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
